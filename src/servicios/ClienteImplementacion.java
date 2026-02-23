@@ -1,5 +1,7 @@
 package servicios;
 
+
+
 import controladores.Inicio;
 import dtos.Cliente;
 
@@ -14,7 +16,19 @@ public class ClienteImplementacion {
 		return idLista++;
 	}
 	
+
+	//Metodo que imprime por pantalla lo que le metas por el parámetro como un String
+	
+	public static void pt(String msg) {
+		System.out.print(msg);
+	}
+	public static void ptln(String msg) {
+		System.out.println(msg);
+	}
+
 	public void registroCliente(){
+		
+		pt("Hola");
 		
 	    Cliente nuevoCliente = new Cliente(); 
 	    
@@ -23,7 +37,7 @@ public class ClienteImplementacion {
 	    
 	    //Nombre completo
 	    Inicio.sc.nextLine();
-		System.out.println("Introduzca su nombre completo separado por comas: \n(Nombre,Apellido,Apellido)");
+		pt("Introduzca su nombre completo separado por comas: \n(Nombre,Apellido,Apellido)");
 		String nombreCompleto = Inicio.sc.nextLine();
 		String[] partes = nombreCompleto.split(",");
 		
@@ -106,6 +120,7 @@ public class ClienteImplementacion {
 				
 		if (!dni.matches("^[0-9]{8}[A-Z]$")) {
 					
+			
 				return false;
 		}
 				

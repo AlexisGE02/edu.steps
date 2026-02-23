@@ -17,7 +17,7 @@ public class Inicio {
 	public static MenuImplementacion mi = new MenuImplementacion(); 
 	public static ArrayList<Cliente> listaClientes = new ArrayList<>();
 	public static ArrayList<Cliente> listaClientesOrdenada = new ArrayList<>();
-	
+	listaClientesOrdenada = Inicio.listaClientes.sort();
 	/**
 	 * Método principal de la aplicación, alverga la lógica que mantiene iniciada la aplicación, llamando los métodos necesarios para el control y ejecución de cada funcion en la aplocación
 	 * @param args
@@ -26,7 +26,7 @@ public class Inicio {
 	public static void main(String[] args) {
 		
 		
-		Inicio.listaClientesOrdenada = Inicio.listaClientes.sort(Cliente.);
+		
 		boolean esCerrado = false;
 		
 		do {
