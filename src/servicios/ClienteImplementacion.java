@@ -69,23 +69,7 @@ public class ClienteImplementacion {
 	}
 	
 	
-	public static boolean validarDni(String dni) {
-		
-		if (!dni.matches("^[0-9]{8}[A-Z]$")) {
-			
-			return false;
-		}
-		
-		String numeroString = dni.substring(0, 8);
-		char letraDni = dni.toUpperCase().charAt(8);
-		
-		String letrasReferencia = "TRWAGMYFPDXBNJZSQVHLCKE";
-		int numero = Integer.parseInt(numeroString);
-		char letraCorrecta = letrasReferencia.charAt(numero % 23);
-		boolean control = letraDni == letraCorrecta;
-		
-		return control;
-	}
+	
 	
 	
 	
@@ -118,6 +102,23 @@ public class ClienteImplementacion {
 		return esCerrado;
 		
 	}
+	public static boolean validarDni(String dni) {
+				
+		if (!dni.matches("^[0-9]{8}[A-Z]$")) {
+					
+				return false;
+		}
+				
+		String numeroString = dni.substring(0, 8);
+		char letraDni = dni.toUpperCase().charAt(8);
+				
+		String letrasReferencia = "TRWAGMYFPDXBNJZSQVHLCKE";
+		int numero = Integer.parseInt(numeroString);
+		char letraCorrecta = letrasReferencia.charAt(numero % 23);
+		boolean control = letraDni == letraCorrecta;
+				
+		return control;
+			}
 	private boolean comprobarEmailYContrasenia(String email, String contraseña) {
 		boolean coinciden = false;
 		for (Cliente c : Inicio.listaClientes) {

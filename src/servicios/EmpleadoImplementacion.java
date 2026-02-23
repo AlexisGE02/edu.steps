@@ -5,6 +5,7 @@ import dtos.Cliente;
 
 
 
+
 public class EmpleadoImplementacion {
 	
 	public void validarCliente() {
@@ -57,10 +58,11 @@ public class EmpleadoImplementacion {
 	
 	}
 	
-	public void borrarCliente() {
+	public boolean borrarCliente() {
 		Cliente cliente = new Cliente();
 		boolean esDniValidado = false; 
 		boolean existeDni = false; 
+		String dniValido = "";
 		
 		if (!Inicio.listaClientes.isEmpty()) {
 			
@@ -71,10 +73,11 @@ public class EmpleadoImplementacion {
 			
 			do {
 			System.out.println("Introduzca el Dni del cliente que quiera borrar");
-			String Dni = Inicio.sc.next();
+			String Dni = Inicio.sc.next(); 
 				if(ClienteImplementacion.validarDni(Dni)) {
 						if(comprobarDniExiste(Dni)) {
 							existeDni = true;
+							dniValido = Dni;
 					}
 					esDniValidado = true; 
 						
@@ -83,16 +86,22 @@ public class EmpleadoImplementacion {
 				}
 			}while(!esDniValidado);
 			
-			if(!existeDni) {
-				
+			if(existeDni) {
+				for (Cliente c : Inicio.listaClientes) {
+					if(c.getDni().equals(dniValido)) {
+						cliente = c;
+					}
+				}
+				Inicio.listaClientes.remove(cliente);
+				System.out.println("Cliente borrado correctamente");
 			}else {
-				System.out.println("El Dni introducido no es válido, pruebe de nuevo");
+				System.out.println("El Dni introducido no existe");
 			}
 			
 		}else{
 			System.out.println("Aun no hay clientes registrados");
 		}
-		
+		return true;
 	}
 	
 	private boolean comprobarDniExiste(String Dni) {
@@ -103,6 +112,18 @@ public class EmpleadoImplementacion {
 			}
 		}
 		return coinciden;
+	}
+	
+	public void mostrarClientes(){
+			if (!Inicio.listaClientes.isEmpty()) {
+			
+				//Muestra la lista de clientes
+				for (Cliente c : Inicio.listaClientes) {
+					System.out.println(c.toString());
+				}
+			}else{
+				System.out.println("No hay clientes para mostrar");
+			}
 	}
 }
 

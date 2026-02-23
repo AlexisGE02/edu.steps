@@ -33,13 +33,15 @@ public class MenuEmpleadoImplementacion implements MenuInterfaz{
 		
 		switch(opcion) {
 		case 1:
+			System.out.println("Ha elegido Validar Cliente");
 			ei.validarCliente();
 			break;
 		case 2:
-			System.out.println("Borrar Cliente");
+			System.out.println("Ha elegido Borrar Cliente");
+			esCerrado1= ei.borrarCliente();
 			break;
 		case 3:
-			System.out.println("Mostrar Cliente");
+			ei.mostrarClientes();
 			break;
 		case 4:
 			System.out.println("Volviendo al menú principal");
