@@ -1,6 +1,6 @@
 package dtos;
 
-public class Cliente {
+public class Usuarios {
 	
 	private long id;
 	private String dni;
@@ -8,7 +8,8 @@ public class Cliente {
 	private String apellido1;
 	private String apellido2;
 	private String email;
-	private String contraseña;
+	private String contrasenia;
+	private String rol = "";
 	private boolean esValidado = false; 
 	
 	
@@ -19,8 +20,11 @@ public class Cliente {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasenia() {
+		return contrasenia;
+	}
+	public void setContrasenia(String contraseña) {
+		this.contrasenia = contraseña;
 	}
 	public String getDni() {
 		return dni;
@@ -52,14 +56,17 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public void setContrasenia(String contraseña) {
-		this.contraseña = contraseña;
-	}
 	public boolean getEsValidado() {
 		return esValidado;
 	}
 	public void setEsValidado(boolean esValidado) {
 		this.esValidado = esValidado;
+	}
+	public String getRol() {
+		return rol;
+	}
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 	@Override
 	public String toString() {

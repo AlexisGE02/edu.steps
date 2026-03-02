@@ -2,16 +2,18 @@ package servicios;
 
 
 
+
+
 import controladores.Inicio;
-import dtos.Cliente;
+import dtos.Usuarios;
 
 public class ClienteImplementacion {
 	
 	private long idNuevo() {
 		
 		long idLista = 0;
-		if (!Inicio.listaClientes.isEmpty()) {
-			idLista=Inicio.listaClientes.getLast().getId();
+		if (!Inicio.listaUsuarios.isEmpty()) {
+			idLista=Inicio.listaUsuarios.getLast().getId();
 		}
 		return idLista++;
 	}
@@ -30,7 +32,7 @@ public class ClienteImplementacion {
 		
 		pt("Hola");
 		
-	    Cliente nuevoCliente = new Cliente(); 
+	    Usuarios nuevoCliente = new Usuarios(); 
 	    
 	    // Id Autonumérico
 	    idNuevo();
@@ -68,7 +70,7 @@ public class ClienteImplementacion {
 			System.out.println("Introduzca su contraseña");
 			String contraseña = Inicio.sc.next();
 			
-		if (!comprobarEmailYContrasenia(email, contraseña)) {
+		if (!comprobarEmail(email, contraseña)) {
 			nuevoCliente.setEmail(email);
 			nuevoCliente.setContrasenia(contraseña);
 			System.out.println("Usuario registrado");
@@ -78,7 +80,7 @@ public class ClienteImplementacion {
 		}
 		}while(!esCorrecto);
 		
-		Inicio.listaClientes.add(nuevoCliente);
+		Inicio.listaUsuarios.add(nuevoCliente);
 		
 	}
 	
@@ -97,7 +99,7 @@ public class ClienteImplementacion {
 			System.out.println("Introduzca su contraseña");
 			String contraseña = Inicio.sc.next();
 			
-			if (comprobarEmailYContrasenia(email, contraseña)) {
+			if (comprobarEmail(email, contraseña)) {
 					System.out.println("Inicio de sesión correcto");
 					esCerrado = true;
 				}else {
@@ -134,15 +136,14 @@ public class ClienteImplementacion {
 				
 		return control;
 			}
-	private boolean comprobarEmailYContrasenia(String email, String contraseña) {
-		boolean coinciden = false;
-		for (Cliente c : Inicio.listaClientes) {
-			if (c.getEmail().equals(email) && c.getContraseña().equals(contraseña)) {
-				coinciden = true;
+	private boolean comprobarEmail(String email, String contraseña) {
+		boolean coincide = false;
+		for (Usuarios c : Inicio.listaUsuarios) {
+			if (c.getEmail().equals(email)) {
+				coincide = true;
 			}
 		}
-		return coinciden;
+		return coincide;
 	}
-	
 	
 }

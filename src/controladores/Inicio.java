@@ -3,7 +3,8 @@ package controladores;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import dtos.Cliente;
+import dtos.Usuarios;
+import servicios.EmpleadoImplementacion;
 import servicios.MenuImplementacion;
 
 /**
@@ -15,9 +16,10 @@ public class Inicio {
 	
 	public static Scanner sc = new Scanner(System.in);
 	public static MenuImplementacion mi = new MenuImplementacion(); 
-	public static ArrayList<Cliente> listaClientes = new ArrayList<>();
-	public static ArrayList<Cliente> listaClientesOrdenada = new ArrayList<>();
-	listaClientesOrdenada = Inicio.listaClientes.sort();
+	public static ArrayList<Usuarios> listaUsuarios = new ArrayList<>();
+	public static ArrayList<Usuarios> listaUsuariosEmpleados = new ArrayList<>();
+	
+	
 	/**
 	 * Método principal de la aplicación, alverga la lógica que mantiene iniciada la aplicación, llamando los métodos necesarios para el control y ejecución de cada funcion en la aplocación
 	 * @param args
@@ -26,7 +28,8 @@ public class Inicio {
 	public static void main(String[] args) {
 		
 		
-		
+		EmpleadoImplementacion ei = new EmpleadoImplementacion();
+		ei.crearPrimerEmpleado("Admin1", "AdminPass");
 		boolean esCerrado = false;
 		
 		do {

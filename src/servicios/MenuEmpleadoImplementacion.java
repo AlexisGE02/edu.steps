@@ -13,7 +13,8 @@ public class MenuEmpleadoImplementacion implements MenuInterfaz{
 		System.out.println("·····1. Validar Cliente········");
 		System.out.println("·····2. Borrar Cliente·········");
 		System.out.println("·····3. Mostrar Cliente········");
-		System.out.println("·····4. Volver al menú inicial·");
+		System.out.println("·····4. Asignar Rol············");
+		System.out.println("·····5. Volver al menú inicial·");
 		System.out.println("·······························");
 		
 		
@@ -44,6 +45,9 @@ public class MenuEmpleadoImplementacion implements MenuInterfaz{
 			ei.mostrarClientes();
 			break;
 		case 4:
+			ei.asignarRol();
+			break;
+		case 5:
 			System.out.println("Volviendo al menú principal");
 			esCerrado1 = true;
 			break;
